@@ -24,7 +24,10 @@ src/main/scala/
 ├── Reverse.scala        # Diferentes implementações de reversão de listas
 ├── Concatenation.scala  # Múltiplas abordagens para concatenação de listas
 ├── VectorBasics.scala   # Demonstração completa de Vector (estrutura balanceada)
-└── ArraySeqBasics.scala # Demonstração de ArraySeq (acesso O(1) verdadeiro)
+├── ArraySeqBasics.scala # Demonstração de ArraySeq (acesso O(1) verdadeiro)
+├── Either.scala         # Estrutura funcional para computações que podem falhar
+├── Stack.scala          # Implementação funcional de pilha (Stack)
+└── Queue.scala          # Implementação funcional de fila (Queue)
 ```
 
 ## Implementações Principais
@@ -38,6 +41,22 @@ Demonstra como estender listas imutáveis anexando elementos:
 Mostra diferentes abordagens para calcular o tamanho de uma lista:
 - **`lengthRec`**: Recursão estrutural direta
 - **`lengthTRec`**: Computação estilo iterativo usando tail recursion
+
+### 9. Either (`Either.scala`)
+Implementa o tipo funcional `Either` para representar valores que podem ser de dois tipos (usado para computações que podem falhar):
+- **`Left` e `Right`**: Representam erro e sucesso, respectivamente
+- **Pattern matching** para manipulação segura de resultados
+
+### 10. Stack (`Stack.scala`)
+Implementação funcional de pilha:
+- **Operações O(1)**: push, pop, peek
+- **Imutabilidade**: cada operação retorna uma nova pilha
+
+### 11. Queue (`Queue.scala`)
+Implementação funcional de fila:
+- **NaiveListQueue**: fila simples baseada em lista
+- **TwoStacksQueue**: fila eficiente usando duas listas (stacks) para operações rápidas de enqueue/dequeue
+- **Testes e exemplos**: métodos `main` para demonstrar uso e comportamento
 
 ### 3. Operações de Agregação (`Sum.scala`)
 Implementa operações de redução em elementos da lista:
@@ -125,5 +144,9 @@ sbt "runMain testReverse"        # Testar implementações de reversão
 sbt "runMain testConcatenate"    # Testar implementações de concatenação
 sbt "runMain VectorBasics"       # Demonstração completa de Vector
 sbt "runMain ArraySeqBasics"     # Demonstração completa de ArraySeq
+sbt "runMain testEither"         # Testar uso de Either
+sbt "runMain testStack"          # Testar implementação de Stack
+sbt "runMain testNaiveListQueue" # Testar implementação de fila simples
+sbt "runMain testTwoStacksQueue" # Testar implementação de fila eficiente
 
 ```
